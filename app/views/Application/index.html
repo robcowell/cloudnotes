@@ -7,15 +7,62 @@
  <script src="@{'/public/javascripts/jquery.ui.position.js'}" type="text/javascript"></script>
  <script src="@{'/public/javascripts/jquery.contextMenu.js'}" type="text/javascript"></script>
  <script src="@{'/public/javascripts/MessageBoard.js'}" type="text/javascript"></script>
+ <script src="@{'/public/javascripts/codef_music.js'}"></script>
+
+<script>
+$(document)
+			.ready(
+					function() {
+$('#credits').load('http://localhost/~robcowell/Wizzcat/index.html').dialog({
+  autoOpen: false,
+  modal: true,
+  resizable: false,
+  buttons: {
+    Close: function() {
+    	CODEF_AUDIO_NODE.onaudioprocess = function(event){
+                                var l = event.outputBuffer.getChannelData(0);
+                                var r = event.outputBuffer.getChannelData(1);
+                                for (i = 0; i < CODEF_AUDIO_NODE.bufferSize; ++i) {
+                                        l[i]=0;
+                                        r[i]=0;
+                                }
+                                event.outputBuffer = null;
+                                player = null;
+                        }
+      $(this).dialog('close');
+      
+      // Submit Rating
+    }
+} });
+});
+
+function doCredits()
+{
+	$('#credits').dialog('open');
+}
+</script>
+
+<div id="credits" title="Credits">
+
+</div>
+
+<div id="testing">
+<button onClick="doCredits();">
+</div>
 
 <div id="inputpanel" align="left" class="shadowbox collapsibleContainer" >
 	#{form @AddNote()}
-		<textarea size="255" id="body" name="body" class="noteInput"></textarea>
+		<textarea size="255" id="notebody" name="notebody" class="noteInput"></textarea>		
 		<br>
 		<div align="center">
-			<input type="button" id="btnAdd" name="btnAdd" value="Add Note" />
+			<input type="submit" id="btnAdd" name="btnAdd" value="Add Note" />
 		</div>
 	#{/form}
 </div>
 
 <div width="80%" id="uxLayoutPinboard" class="pinBoard" />
+#{list items:notes, as:'note'}
+	<script>
+		$("<div class='note' id='${note.id}'><p><br>${note.Body}</p></div>").css({'position':'absolute','left':getRandomLeft()+'px','top':getRandomTop()+'px','-webkit-transform':'rotate('+getRandomAngle()+'deg)','-moz-transform':'rotate('+getRandomAngle()+'deg)','-ms-transform':'rotate('+getRandomAngle()+'deg)'}).draggable({ containment: '.pinBoard', stack: '.note' }).appendTo('.pinBoard');
+	</script>
+#{/list}

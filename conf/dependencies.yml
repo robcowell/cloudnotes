@@ -1,5 +1,7 @@
 # Application dependencies
 
 require:
-    - play
+    - play 1.2.5
     - play -> morphia 1.2.12
+    - play -> secure
+    - play -> crud

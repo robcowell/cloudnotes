@@ -5,20 +5,26 @@ import play.mvc.*;
 
 import java.util.*;
 
+import controllers.Secure.Security;
+
 import models.*;
 
+@With(Secure.class)
 public class Application extends Controller {
 
     public static void index() {
-        render();
+    	List<Note> notes = Note.ds().find(Note.class,"Owner =",Security.connected()).asList();
+    	System.out.println(notes.size() + " notes");
+        render(notes);
     }
 
-    public static void AddNote(String body)
+    public static void AddNote(String notebody)
     {
-    	System.out.println(body);
-    	Note note = new Note(body,"admin");
+    	System.out.println(notebody);
+    	
+    	Note note = new Note(notebody,Security.connected());
     	note.save();
-    	render();
+    	index();
     }
 
 }
