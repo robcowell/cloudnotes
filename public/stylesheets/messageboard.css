@@ -3,16 +3,19 @@ html
     margin: 0;
     background: #ffffff;
     color: #000000;
-    font-family: "qlassik_tb_d7b9-webfont";
+    font-family: 'Cabin', Helvetica, Arial, sans-serif;
 }
 
-@font-face
-{
-    font-family: 'qlassik_tb_d7b9-webfont';
-    src: url('qlassik_tb_d7b9-webfont.eot');
-    src: url('qlassik_tb_d7b9-webfont.eot?#iefix') format('embedded-opentype'),url('qlassik_tb_d7b9-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+h1 {
+    font-family: 'Lobster', Georgia, Times, serif;
+    font-size: 40px;
+    line-height: 70px;
+}
+ 
+p {
+    font-family: 'Cabin', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 25px;
 }
 
 textarea
@@ -36,7 +39,7 @@ textarea
     height:201px;
     cursor:pointer;
     position:absolute;
-    font-family: "qlassik_tb_d7b9-webfont", arial, serif !important;
+    font-family: 'Cabin', Helvetica, Arial, sans-serif !important;
     font-size:14px !important;
     background:url(../images/PostIt.png);
 }
@@ -46,7 +49,7 @@ textarea
     padding-top:20px;
     padding-left:10px;
     padding-right:10px;
-    font-family: "qlassik_tb_d7b9-webfont", arial, serif !important; 
+    font-family: 'Cabin', Helvetica, Arial, sans-serif !important; 
     font-size:14px !important;
     overflow:hidden;
     height:130px; 
@@ -90,7 +93,7 @@ input[type=text] {
 
 input[type=submit], input[type="button"] {
     text-decoration: none;
-    font-family: "qlassik_tb_d7b9-webfont";
+    font-family: 'Cabin', Helvetica, Arial, sans-serif;
     font-weight: bold;
     xtext-shadow: none;
     padding: 3px 3px 3px 3px;
@@ -110,4 +113,9 @@ input[type=submit], input[type="button"] {
 
 select {
     display: block;
+}
+
+#header
+{
+	
 }

@@ -1,6 +1,7 @@
 package controllers;
 
 import play.*;
+import play.modules.morphia.Model.MorphiaQuery;
 import play.mvc.*;
 
 import java.util.*;
@@ -25,6 +26,13 @@ public class Application extends Controller {
     	Note note = new Note(notebody,Security.connected());
     	note.save();
     	index();
+    }
+    
+    public static void DeleteNote(String noteID)
+    {
+	Note note = Note.findById(noteID);
+	note.delete();
+	index();
     }
 
 }

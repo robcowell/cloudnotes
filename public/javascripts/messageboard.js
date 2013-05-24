@@ -100,17 +100,24 @@ function addContextMenu()
     // define which elements trigger this menu
     selector: ".note",
     // define the elements of the menu
-    items: {
-        delete: {name: "Delete this note", icon: "delete", callback: function(key, opt)
+    items:
+    {
+    	edit:
+    	{
+    		name: "Edit this note", icon: "edit", callback: function(key, opt)
+    		{
+    			alert("edit note");
+    		}
+    	},
+        delete:
         {
-        	var elementID = opt.$trigger.attr("id");
-        	//alert(elementID);
-        	store.remove(elementID);
-        	var selector = "#" + elementID;
-        	$(selector).remove();
+        	name: "Delete this note", icon: "delete", callback: function(key, opt)
+        	{
+        		var elementID = opt.$trigger.attr("id");
+        		//alert(elementID);
+        		$.post("/Application/DeleteNote?noteID=" + elementID);
+        	}
         }
-
-        },
     }
 });
 }

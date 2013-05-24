@@ -11,6 +11,8 @@
         <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/smoothness/jquery-ui-1.9.2.custom.css'}" />
         <link href="@{'/public/stylesheets/messageboard.css'}" rel="stylesheet" type="text/css" />
         <link href="@{'/public/stylesheets/jquery.contextMenu.css'}" rel="stylesheet" type="text/css" />
+        <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css">
         #{get 'moreStyles' /}
         
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
@@ -21,6 +23,9 @@
     </head>
 
     <body>
+    <div id="header">
+    	<h1>CloudNotes</h1>
+    </div>
         #{doLayout /}
     </body>
 

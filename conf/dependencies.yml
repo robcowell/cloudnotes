@@ -5,3 +5,4 @@ require:
     - play -> morphia 1.2.12
     - play -> secure
     - play -> crud
+    - org.mindrot -> jbcrypt 0.3m
