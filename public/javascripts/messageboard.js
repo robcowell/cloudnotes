@@ -106,7 +106,9 @@ function addContextMenu()
     	{
     		name: "Edit this note", icon: "edit", callback: function(key, opt)
     		{
-    			alert("edit note");
+    			//alert("edit note");
+    			var elementID = opt.$trigger.attr("id");
+    			
     		}
     	},
         delete:
@@ -116,6 +118,7 @@ function addContextMenu()
         		var elementID = opt.$trigger.attr("id");
         		//alert(elementID);
         		$.post("/Application/DeleteNote?noteID=" + elementID);
+        		opt.$trigger.remove();
         	}
         }
     }
