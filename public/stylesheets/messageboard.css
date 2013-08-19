@@ -9,7 +9,7 @@ html
 h1 {
     font-family: 'Lobster', Georgia, Times, serif;
     font-size: 40px;
-    line-height: 70px;
+    display: block;
 }
  
 p {
