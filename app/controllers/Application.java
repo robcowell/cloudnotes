@@ -15,14 +15,11 @@ public class Application extends Controller {
 
     public static void index() {
     	List<Note> notes = Note.ds().find(Note.class,"Owner =",Security.connected()).asList();
-    	System.out.println(notes.size() + " notes");
         render(notes);
     }
 
     public static void AddNote(String notebody)
-    {
-    	System.out.println(notebody);
-    	
+    {	
     	Note note = new Note(notebody,Security.connected());
     	note.save();
     	index();
@@ -30,9 +27,8 @@ public class Application extends Controller {
     
     public static void DeleteNote(String noteID)
     {
-	Note note = Note.findById(noteID);
-	note.delete();
-	index();
+    	Note note = Note.findById(noteID);
+    	note.delete();
+    	index();
     }
-
 }

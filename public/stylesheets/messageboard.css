@@ -10,6 +10,9 @@ h1 {
     font-family: 'Lobster', Georgia, Times, serif;
     font-size: 40px;
     display: block;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
 }
  
 p {
@@ -26,7 +29,7 @@ textarea
 .pinBoard
 {
     width:98%;
-    height:550px;
+    height:450px;
     border: solid 2px black;
     background:url(../images/CorkBoard.jpg);
     padding:10px;
@@ -57,6 +60,9 @@ textarea
 
 .collapsibleContainer {
     cursor:pointer;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
 }
 
 #inputpanel
@@ -117,5 +123,6 @@ select {
 
 #header
 {
-	
+	margin: 0px;
+    border: 0px;
 }
